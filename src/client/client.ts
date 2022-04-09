@@ -1,3 +1,5 @@
 import { createClient } from './createClient';
 
-export const client = createClient('localhost:3000');
+export const URL = 'localhost:3000';
+
+export const client = createClient(URL);
