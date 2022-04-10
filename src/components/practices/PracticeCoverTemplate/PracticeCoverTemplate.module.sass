@@ -1,0 +1,44 @@
+@import src/styles/common
+
+.root
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  border-radius: 4px
+  padding: 16px
+  color: $dark2Color
+  cursor: pointer
+  box-shadow: $boxShadow2
+
+.top
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.type
+  font-weight: 600
+
+.content
+  margin-top: 20px
+  margin-bottom: 20px
+  text-align: center
+
+.title
+  font-size: 18px
+  font-weight: 600
+
+.desc
+  margin: 0 auto
+  max-width: 680px
+  padding-top: 4px
+  font-size: 14px
+
+  &:empty
+    display: none
+
+.level
+  margin-right: 8px
+
+.bottom
+  display: flex
+  align-items: center
