@@ -8,6 +8,9 @@ module.exports = {
   devtool: "source-map",
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+    alias: {
+      src: path.resolve('./src'),
+    },
   },
   output: {
     path: path.join(__dirname, "/dist"),
