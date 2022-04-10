@@ -1,8 +1,9 @@
 import * as React from 'react';
 import cn from 'clsx';
-import { HTMLAttributes, memo } from 'react';
+import { HTMLAttributes, memo, useMemo } from 'react';
 import icons from './icons';
 import s from './Icon.module.sass';
+import { Skeleton } from '../Skeleton/Skeleton';
 
 export type IconType = keyof typeof icons;
 
@@ -12,11 +13,15 @@ export type Props = HTMLAttributes<HTMLElement> & {
   type: IconType;
 };
 
+const fallback = <Skeleton className={s.skeleton} />;
+
 export const Icon = memo<Props>(({ type, className, ...props }) => {
-  const Raw = icons[type];
+  const Raw = useMemo(() => React.lazy(() => icons[type]), [type]);
   return (
     <i {...props} className={cn(s.root, className)}>
-      <Raw />
+      <React.Suspense fallback={fallback}>
+        <Raw />
+      </React.Suspense>
     </i>
   );
 });
